@@ -144,7 +144,7 @@
 	
 	function bbpress_post_ratings_GetPostAuthorID($postID){
 		global $wpdb;
-		$authorIDs = $wpdb->get_col($wpdb->prepare("SELECT post_author FROM " . $wpdb->posts . " WHERE ID = " . intval($postID) . " LIMIT 1"));
+		$authorIDs = $wpdb->get_col($wpdb->prepare("SELECT post_author FROM " . $wpdb->posts . " WHERE ID = %d LIMIT 1", intval($postID)));
 		return $authorIDs[0];
 	}
 	
